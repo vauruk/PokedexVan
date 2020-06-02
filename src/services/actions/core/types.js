@@ -1,0 +1,5 @@
+export const LOADING_POSTAL_CODE = 'core/LOADING_STOP'
+export const ADDRESS_LOAD = 'core/ADDRESS_LOAD'
+export const LOAD_LAT_LNG = 'core/LOAD_LAT_LNG'
+export const SHOW_MODAL_ERROR = 'core/SHOW_MODAL_ERROR'
+export const MESSAGE_ERROR_MODAL = 'core/MESSAGE_ERROR_MODAL'
