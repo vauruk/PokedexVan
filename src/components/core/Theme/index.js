@@ -5,6 +5,9 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 const PRIMARY_COLOR = '#5c4696'
 const SECONDARY_COLOR = '#C8D419'
 const WHITE_COLOR = '#ffffff'
+const BLACK = '#000000'
+const GREY_1 = '#585858'
+
 
 /*  FONT SIZE */
 const TEXT_8 = RFValue(8, 580)//Platform.OS === 'ios' ? RFValue(12, 580) : RFValue(13, 580)
@@ -37,6 +40,8 @@ export default {
     PRIMARY_COLOR,
     SECONDARY_COLOR,
     WHITE_COLOR,
+    BLACK,
+    GREY_1,
     TEXT_8,
     TEXT_12,
     TEXT_13,
@@ -76,7 +81,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
     },
     wrapperPopup: {
-       // backgroundColor: LIGHT_BACKGROUND_COLOR,
+        // backgroundColor: LIGHT_BACKGROUND_COLOR,
         width: '90%',
         borderRadius: 10,
         borderColor: PRIMARY_COLOR,
@@ -129,7 +134,7 @@ export const styles = StyleSheet.create({
     },
     textEmpty: {
         marginTop: 20,
-       // color: DARK_COLOR,
+        // color: DARK_COLOR,
         fontSize: TEXT_24,
     },
     textDefault: {

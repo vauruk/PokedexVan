@@ -18,61 +18,64 @@ import Home from '../Home'
 import theme, { styles } from '../Theme'
 
 //const iconMenu = (<IconMaterialCommunity  name="menu" style={{ fontSize: 30, color: theme.WHITE_COLOR }} />);
-const iconMenu = (<Icon type="FontAwesome" name="home" style={{ fontSize: 30, color: theme.WHITE_COLOR }}/>);
+const iconMenu = (<Icon type="FontAwesome" name="home" style={{ fontSize: 30, color: theme.WHITE_COLOR }} />);
 
 type Props = {};
-const MainRouter: () => React$Node = () => {
-    //  render() {
-    return (
-        <Router>
-            <Scene key="root"
-                hideNavBar
-                hideTabBar
-                panHandlers={null}>
-                {/* Cenas do fluxo autenticado. */}
-                <Drawer
+class MainRouter extends Component<Props> {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <Router>
+                <Scene key="root"
                     hideNavBar
-                    key="drawer"
-                    onExit={() => {
-                        console.log('Drawer closed');
-                    }}
-                    onEnter={() => {
-                        console.log('Drawer opened');
-                    }}
-                    drawerIcon={iconMenu}
-                    drawerWidth={300}
-                    //contentComponent={SideBar}
-                    drawerPosition="left"
-                    navTransparent
-                >
-                    {/* Você deixa as cenas dentro de uma mesma stack para orientar a navegação */}
-                    <Stack
-                        key="main"
-                        panHandlers={null}
-                        {...sceneConfig}
-                        //initial={this.props.isAuthenticated} // Define se esta cena é a inicial ou não true / false
-                        initial={true} // Debug: Define como true manualmente para ir direto para esta cena.
+                    hideTabBar
+                    panHandlers={null}>
+                    {/* Cenas do fluxo autenticado. */}
+                    <Drawer
+                        hideNavBar
+                        key="drawer"
+                        onExit={() => {
+                            console.log('Drawer closed');
+                        }}
+                        onEnter={() => {
+                            console.log('Drawer opened');
+                        }}
+                        drawerIcon={iconMenu}
+                        drawerWidth={300}
+                        //contentComponent={SideBar}
+                        drawerPosition="left"
+                        navTransparent
                     >
+                        {/* Você deixa as cenas dentro de uma mesma stack para orientar a navegação */}
+                        <Stack
+                            key="main"
+                            panHandlers={null}
+                            {...sceneConfig}
+                            //initial={this.props.isAuthenticated} // Define se esta cena é a inicial ou não true / false
+                            initial={true} // Debug: Define como true manualmente para ir direto para esta cena.
+                        >
 
-                        {/* demais cenas autenticadas devem ser inseridas aqui */}
-                        <Scene key="home"
-                            //initial
-                            component={Home}
-                            renderTitle={<Text style={styles.headerTitle}>Home</Text>}
-                            navigationBarStyle={stylesLocal.navBar}
-                            hideNavBar={false}
-                            onRight={() => console.log('Pressed')}
-                            renderRightButton={<HeaderHome />}
-                        />
+                            {/* demais cenas autenticadas devem ser inseridas aqui */}
+                            <Scene key="home"
+                                //initial
+                                component={Home}
+                                renderTitle={<Text style={styles.headerTitle}>Home</Text>}
+                                navigationBarStyle={stylesLocal.navBar}
+                                hideNavBar={false}
+                                onRight={() => console.log('Pressed')}
+                                renderRightButton={<HeaderHome />}
+                            />
 
-                    </Stack>
-                    {/* this.selectEditReminder() */}
-                </Drawer>
+                        </Stack>
+                        {/* this.selectEditReminder() */}
+                    </Drawer>
 
-            </Scene>
-        </Router>
-    );
-    // }
+                </Scene>
+            </Router>
+        );
+    }
 }
 
 function areEqual() {

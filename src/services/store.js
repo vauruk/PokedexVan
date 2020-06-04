@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, compose} from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'; //Dispatch after async done
 //import {persistStore, persistReducer} from 'redux-persist';
 import logger from 'redux-logger';
@@ -13,7 +13,7 @@ import reducers from './reducers';
 // };
 //const persistedReducer = persistReducer(persistConfig, reducers);
 const middleware = applyMiddleware(thunk, logger);
-const store = createStore(/*persistedReducer,*/ compose(middleware));
+const store = createStore(/*persistedReducer,*/reducers, compose(middleware));
 //const persistor = persistStore(store);
 
-export {store};
+export { store };

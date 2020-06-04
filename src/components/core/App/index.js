@@ -18,10 +18,7 @@ import { Router, Actions } from 'react-native-router-flux';
 
 import {
 	Button,
-	Platform,
-	StyleSheet,
-	NativeModules,
-	Alert
+	StyleSheet
 } from 'react-native';
 
 import {
@@ -31,10 +28,11 @@ import {
 } from 'native-base';
 
 import MainRouter from '../Router'
-
+// type Props = {};
+// class App extends Component<Props> {
 const App: () => React$Node = () => {
-	//console.disableYellowBox = true;
-	// persistor.purge()
+	//render() {
+	console.disableYellowBox = true;
 	return (
 		<Root>
 			<Provider store={store}>
@@ -45,8 +43,8 @@ const App: () => React$Node = () => {
 			</Provider>
 		</Root>
 	);
+	//}
 }
-
 
 export default App;
 
@@ -54,7 +52,7 @@ const Register2 = () => (
 	<Container>
 		<Content>
 			<Text style={styles.welcome}>
-				Register
+				Register ee
             </Text>
 		</Content>
 	</Container>

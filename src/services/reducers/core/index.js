@@ -3,7 +3,8 @@ import * as types from '../../actions/core/types';
 const initialState = {
     addressByPostalCode: undefined,
     allowFontScaling: false,
-    messageErrorModal: undefined //{code: 504,title: "erro", message: "mensagem " }
+    messageErrorModal: undefined, //{code: 504,title: "erro", message: "mensagem " }
+    pokedexList: [{ code: 504, title: "erro", message: "mensagem " }, { code: 544, title: "erro", message: "mensagem " }]
 };
 
 export default (state = initialState, action) => {
@@ -18,6 +19,10 @@ export default (state = initialState, action) => {
         case types.MESSAGE_ERROR_MODAL: {
             console.log("MESSAGE_ERROR_MODAL", action)
             return { ...state, messageErrorModal: action.payload };
+        }
+        case types.POKEDEX_LIST: {
+            console.log("POKEDEX_LIST", action)
+            return { ...state, pokedexList: action.payload };
         }
         default:
             return state;
