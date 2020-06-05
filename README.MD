@@ -28,10 +28,8 @@
  - Para rebuildar a aplicacao caso esteja com problemas: </br>
    - watchman watch-del-all && rm -rf node_modules && yarn install && yarn start --reset-cache && rm -rf /tmp/metro-\* </br>
 
-
 </br>
-</br>
-<b> Funcionamento aplicativo</b>
+<b> Funcionamento aplicativo</b></br></br>
   - Aplicativo tem funcionamento simples, com apenas duas telas, usando um biblioteca para transição de uma para a outra chamada Router Flux, a primeira tela tem todas as ações praticamente, a busca é feita apos 3 caracteres serem digitados feito dessa maneira para ter uma performance melhor, não fazendo sentido buscar informações com apenas 1 ou 2 caracteres
 
 </br></br>
