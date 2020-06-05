@@ -1,9 +1,5 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
+ * @author Vanderson de Moura Vauruk
  */
 
 import React, { Component } from 'react';
@@ -15,9 +11,10 @@ import {
     ScrollView,
     View,
     Text,
+
 } from 'react-native';
 
-import { Icon, Input, Item } from 'native-base'
+import { Icon, Input, Spinner } from 'native-base'
 
 import {
     Colors,
@@ -27,11 +24,24 @@ import {
 import theme, { styles } from '../Theme';
 
 import PokedexList from './pokedexList'
+import Footer from './footer'
+
+
+import { pokemonListAction } from '../../../services/actions/core'
 
 type Props = {};
 class Home extends Component<Props> {
     constructor(props) {
         super(props);
+        this.state = {
+            textToSearch: undefined
+        }
+    }
+
+    searchPokemon = (textToSearch) => {
+        console.log("searchPokemon")
+        this.setState({ textToSearch })
+        this.props.pokemonListAction(textToSearch)
     }
 
     render() {
@@ -52,7 +62,8 @@ class Home extends Component<Props> {
                             stylesLocal.sectionContainer,
                             {
                                 //  height: 40,
-                                margin: 20,
+                                marginLeft: 20,
+                                marginRight: 20,
                                 backgroundColor: '#F2F2F2',
                                 paddingLeft: 20,
                                 // padding: 10,
@@ -72,30 +83,31 @@ class Home extends Component<Props> {
                             </View>
                             <View style={{ flex: 0.89 }}>
                                 <Input
-                                    //value={count + ""}
+                                    value={this.state.textToSearch}
                                     placeholderTextColor={theme.GREY_1}
                                     style={{
-                                        paddingTop: 25,
-                                        paddingRight: 25,
-                                        paddingBottom: 25,
                                         fontSize: theme.TEXT_10,
-                                        // color: theme.PRIMARY_COLOR,
+                                        color: theme.BLACK,
                                         // fontWeight: "bold"
                                     }}
                                     placeholder={'What Pokémon are you looking for?'}
                                     autoCapitalize="sentences"
-                                    onChangeText={(token) => this.setState({ token })}
-                                    onSubmitEditing={() =>
-                                        this.handleSetPhysicalToken(this.state.token)
-                                    }
+                                    onChangeText={(text) => this.searchPokemon(text)}
                                 />
                             </View>
                         </View>
                     </View>
-                    <View style={stylesLocal.sectionContainer}>
+                    <View style={{ height: 30 }}>
+                        {this.props.loading &&
+                            <View style={{ justifyContent: "center", alignContent: "center", alignItems: "center" }}>
+                                <Spinner size={40} color='#8bd675' />
+                            </View>}
+                    </View>
+                    <View style={[stylesLocal.sectionContainer, { marginTop: 10 }]}>
                         <PokedexList idNome={"dsdsadas"} />
                     </View>
                 </ScrollView>
+                <Footer />
             </View>
         );
     }
@@ -103,9 +115,11 @@ class Home extends Component<Props> {
 
 const mapStateToProps = (state) => ({
     // sadas: console.log("state", state),
+    loading: state.core.loading,
+    count: state.core.count
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ pokemonListAction }, dispatch);
 
 export default connect(
     mapStateToProps,

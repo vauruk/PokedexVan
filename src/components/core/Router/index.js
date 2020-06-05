@@ -1,24 +1,25 @@
-/* eslint-disable no-console */
-
+/**
+ * @author Vanderson de Moura Vauruk
+ * @date 05/06/2020
+ */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { View, Image, Animated, Easing, StyleSheet, Platform, Text, TextInput } from 'react-native';
 import { Scene, Router, Actions, Drawer, Tabs, Stack, Lightbox } from 'react-native-router-flux';
 import {
-    Button,
     Icon
-    // Container, Content
 } from 'native-base'
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import HeaderHome from '../Home/headerHome'
+import PokemonStats from '../Home/pokemonStats'
 // import IconMaterialCommunity from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Home from '../Home'
 import theme, { styles } from '../Theme'
 
-//const iconMenu = (<IconMaterialCommunity  name="menu" style={{ fontSize: 30, color: theme.WHITE_COLOR }} />);
 const iconMenu = (<Icon type="FontAwesome" name="home" style={{ fontSize: 30, color: theme.WHITE_COLOR }} />);
+const arrowLeft = <Icon type="MaterialCommunityIcons" name="chevron-left" style={{ fontSize: 30, color: theme.BLACK }} />;
 
 type Props = {};
 class MainRouter extends Component<Props> {
@@ -32,45 +33,30 @@ class MainRouter extends Component<Props> {
                     hideNavBar
                     hideTabBar
                     panHandlers={null}>
-                    {/* Cenas do fluxo autenticado. */}
-                    <Drawer
-                        hideNavBar
-                        key="drawer"
-                        onExit={() => {
-                            console.log('Drawer closed');
-                        }}
-                        onEnter={() => {
-                            console.log('Drawer opened');
-                        }}
-                        drawerIcon={iconMenu}
-                        drawerWidth={300}
-                        //contentComponent={SideBar}
-                        drawerPosition="left"
-                        navTransparent
+                    <Stack
+                        key="main"
+                        panHandlers={null}
+                        {...sceneConfig}
+                        initial={true}
                     >
-                        {/* Você deixa as cenas dentro de uma mesma stack para orientar a navegação */}
-                        <Stack
-                            key="main"
-                            panHandlers={null}
-                            {...sceneConfig}
-                            //initial={this.props.isAuthenticated} // Define se esta cena é a inicial ou não true / false
-                            initial={true} // Debug: Define como true manualmente para ir direto para esta cena.
-                        >
+                        <Scene key="home"
+                            component={Home}
+                            renderTitle={<Text style={styles.headerTitle}>Home</Text>}
+                            navigationBarStyle={stylesLocal.navBar}
+                            hideNavBar={false}
+                            onRight={() => console.log('Pressed')}
+                            renderRightButton={<HeaderHome />}
+                        />
+                        <Scene key="pokemonStats"
+                            component={PokemonStats}
+                            onLeft={() => Actions.pop()}
+                            leftTitle={arrowLeft}
+                            //navBar={NavBarStats}
+                            navTransparent={true}
+                            navigationBarStyle={[stylesLocal.navBar]}
+                        />
 
-                            {/* demais cenas autenticadas devem ser inseridas aqui */}
-                            <Scene key="home"
-                                //initial
-                                component={Home}
-                                renderTitle={<Text style={styles.headerTitle}>Home</Text>}
-                                navigationBarStyle={stylesLocal.navBar}
-                                hideNavBar={false}
-                                onRight={() => console.log('Pressed')}
-                                renderRightButton={<HeaderHome />}
-                            />
-
-                        </Stack>
-                        {/* this.selectEditReminder() */}
-                    </Drawer>
+                    </Stack>
 
                 </Scene>
             </Router>
@@ -90,11 +76,9 @@ function areEqual() {
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
-        // fetchFooterAds
     }, dispatch);
 
 const mapStateToProps = (state) => ({
-    // sadas: console.log("state", state),
 });
 
 export default connect(
@@ -103,9 +87,6 @@ export default connect(
 )(MainRouter);
 
 const stylesLocal = StyleSheet.create({
-    cardStyle: {
-        //backgroundColor: 'black' //Define the color of scene background
-    },
     headerTitle: {
         color: '#FFFFFF',
         fontSize: theme.TEXT_12,

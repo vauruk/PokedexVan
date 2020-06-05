@@ -1,3 +1,7 @@
+/**
+ * @author Vanderson de Moura Vauruk
+ * @date 05/06/2020
+ */
 
 import { Dimensions, Platform, StyleSheet } from 'react-native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
@@ -24,6 +28,7 @@ const TEXT_26 = RFValue(26, 580)//Platform.OS === 'ios' ? RFValue(26, 580) : RFV
 const TEXT_30 = RFValue(30, 580) //Platform.OS === 'ios' ? RFValue(30, 580) : RFValue(31, 580)
 const TEXT_35 = RFValue(35, 580) //Platform.OS === 'ios' ? RFValue(30, 580) : RFValue(31, 580)
 const TEXT_50 = RFValue(50, 580)// Platform.OS === 'ios' ? RFValue(50, 580) : RFValue(51, 580)
+const TEXT_100 = RFValue(100, 580)// Platform.OS === 'ios' ? RFValue(50, 580) : RFValue(51, 580)
 
 const PADDING_DEFAULT = RFValue(20)
 const PADDING_10 = RFValue(10)
@@ -54,6 +59,7 @@ export default {
     TEXT_26,
     TEXT_30,
     TEXT_50,
+    TEXT_100,
     PADDING_DEFAULT,
     PADDING_10,
     PADDING_15,

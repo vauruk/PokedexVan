@@ -10,12 +10,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@aws-amplify/core": "^3.3.2",
     "axios": "^0.19.2",
     "lodash": "^4.17.15",
     "native-base": "^2.13.12",
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-progress": "^4.1.2",
     "react-native-reanimated": "^1.9.0",
     "react-native-responsive-fontsize": "^0.4.3",
     "react-native-router-flux": "^4.2.0",

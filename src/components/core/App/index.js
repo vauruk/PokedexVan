@@ -1,24 +1,14 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+ * @author Vanderson de Moura Vauruk
+ * @date 05/06/2020
  */
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../../../services/store';
-// import Loading from '../Loading'
-// import ModalError from '../ModalError'
 
-// import configureStore from '../../../redux/store';
-// const store = configureStore()
-
-//import { MenuProvider } from 'react-native-popup-menu';
-
-import { Router, Actions } from 'react-native-router-flux';
 
 import {
-	Button,
-	StyleSheet
+	StyleSheet,
 } from 'react-native';
 
 import {
@@ -28,11 +18,11 @@ import {
 } from 'native-base';
 
 import MainRouter from '../Router'
-// type Props = {};
-// class App extends Component<Props> {
+
+
 const App: () => React$Node = () => {
-	//render() {
 	console.disableYellowBox = true;
+
 	return (
 		<Root>
 			<Provider store={store}>
@@ -43,7 +33,6 @@ const App: () => React$Node = () => {
 			</Provider>
 		</Root>
 	);
-	//}
 }
 
 export default App;
@@ -54,20 +43,6 @@ const Register2 = () => (
 			<Text style={styles.welcome}>
 				Register ee
             </Text>
-		</Content>
-	</Container>
-)
-const Home2 = () => (
-	<Container>
-		<Content>
-			<Text style={styles.welcome}>
-				HOME
-             </Text>
-			<Button
-				title="Votltar"
-				color="#f194ff"
-				onPress={() => Actions.pop()}
-			/>
 		</Content>
 	</Container>
 )

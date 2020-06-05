@@ -1,5 +1,23 @@
 ## Projeto criado como teste de competencia para GRGIT - Pokedex
 
+- Listar todos os pokemons
+- Acessar as seguintes informações de um pokemon:
+  -- HP
+  -- Ataque
+  -- Defesa
+  -- Velocidade Habilidades (abilities)
+  -- Pesquisar um pokemon pelo nome Paginação dos resultados
+
+- Para estartar o projeto deve ser baixado no git
+  De preferencia deve ser rodado as linhas de comando a seguir:
+
+-- watchman watch-del-all && rm -rf node_modules && yarn install && yarn start --reset-cache && rm -rf /tmp/metro-\*
+
+- Ou deve ser instalador todos os pacotes
+  Run
+  yarn install
+  npx react-native run-ios
+
 # se necessario criar theme
 
 NativeBase 2.0 has been succesfully installed! │

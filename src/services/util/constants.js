@@ -1,4 +1,10 @@
-import * as typesCore from '../actions/core/types';
+/**
+ * @author Vanderson de Moura Vauruk
+ * @date 05/06/2020
+ */
+import {
+    Icon
+} from 'native-base'
 const URL_API = 'pokeapi.co'
 const URL_PROD = URL_API
 const URL_DEV = URL_API
@@ -15,8 +21,8 @@ export const getUrl = () => {
 }
 
 export const errorClg = async (error, dispatch) => {
-    CrashReporter.notify(error);
-    dispatch({ type: typesLoading.LOADING, payload: false })
+    //CrashReporter.notify(error);
+    //dispatch({ type: typesLoading.LOADING, payload: false })
     console.log("error", error.toJSON());
     if (error.response) {
         // The request was made and the server responded with a status code
@@ -46,5 +52,57 @@ export const errorClg = async (error, dispatch) => {
         //         { text: 'OK' },
         //     ],
         // );
+    }
+}
+
+import Leaf from '../../assets/leaf.png'
+import Bug from '../../assets/bug.png'
+import Water from '../../assets/water.png'
+import Poison from '../../assets/poison.png'
+import Fire from '../../assets/fire.png'
+import Flying from '../../assets/flying.png'
+import Normal from '../../assets/normal.png'
+
+export const selectColorByType = (type) => {
+    switch (type) {
+        case 'grass': {
+            return { color: '#8BBF8A', image: Leaf }
+        }
+        case 'poison': {
+            return { color: '#aa5dcf', image: Poison }
+        }
+        case 'fire': {
+            return { color: '#f3a756', image: Fire }
+        }
+        case 'water': {
+            return { color: '#58abf6', image: Water }
+        }
+        case 'bug': {
+            return { color: '#8bd675', image: Bug }
+            //return { color: '#8bd675', icon: <Icon type="MaterialCommunityIcons" name="flash" style={{ fontSize: 15, color: theme.WHITE_COLOR }} /> }
+        }
+        case 'normal': {
+            return { color: '#b5b9c5', image: Normal }
+        }
+        case 'electric': {
+            return { color: '#eee535', image: Bug }
+        }
+        case 'ground': {
+            return { color: '#dd7749', image: Bug }
+        }
+        case 'fairy': {
+            return { color: '#ee6ec7', image: Bug }
+        }
+        case 'flying': {
+            return { color: '#748fc9', image: Flying }
+        }
+        case 'fighting': {
+            return { color: '#d04164', image: Bug }
+        }
+        case 'fada': {
+            return { color: '#ee6ec8', image: Bug }
+        }
+        default:
+            return '#ffffff';
     }
 }

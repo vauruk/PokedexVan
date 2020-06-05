@@ -1,3 +1,7 @@
+/**
+ * @author Vanderson de Moura Vauruk
+ * @date 05/06/2020
+ */
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'; //Dispatch after async done
 //import {persistStore, persistReducer} from 'redux-persist';

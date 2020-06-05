@@ -1,3 +1,6 @@
+/**
+ * @author Vanderson de Moura Vauruk
+ */
 import React, { Component } from 'react';
 import {
     StyleSheet,
@@ -24,14 +27,26 @@ const HeaderHome: () => React$Node = () => {
         <View style={stylesLocal.container}>
             <TouchableOpacity
                 hitSlop={{ top: 20, bottom: 20, left: 10, right: 10 }}
-                style={stylesLocal.badgeButton}
-                onPress={() => Actions.notifications()}
             >
-                <Icon type="MaterialCommunityIcons" name="format-list-bulleted-square" />
+                <Icon type="MaterialCommunityIcons" name="view-comfy" />
                 {/* <IconMaterialCommunity  name="alarm" style={{ fontSize: 30, color: theme.WHITE_COLOR }} /> */}
-                <View style={stylesLocal.badgeContainer}>
+                {/* <View style={stylesLocal.badgeContainer}>
                     <Text style={stylesLocal.badgeText}>{20}</Text>
-                </View>
+                </View> */}
+            </TouchableOpacity>
+            <TouchableOpacity
+                hitSlop={{ top: 20, bottom: 20, left: 10, right: 10 }}
+                style={{ marginLeft: 15 }}
+            >
+                <Icon type="MaterialCommunityIcons" name="sort" style={{ fontSize: 25 }} />
+                {/* <IconMaterialCommunity  name="alarm" style={{ fontSize: 30, color: theme.WHITE_COLOR }} /> */}
+            </TouchableOpacity>
+            <TouchableOpacity
+                hitSlop={{ top: 20, bottom: 20, left: 10, right: 10 }}
+                style={{ marginLeft: 15, marginRight: 20 }}
+            >
+                <Icon type="MaterialCommunityIcons" name="tune" style={{ fontSize: 25 }} />
+                {/* <IconMaterialCommunity  name="alarm" style={{ fontSize: 30, color: theme.WHITE_COLOR }} /> */}
             </TouchableOpacity>
 
         </View>
@@ -43,7 +58,7 @@ const stylesLocal = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         marginRight: 10,
-        width: 40,
+        //width: 40,
     },
     badgeContainer: {
         position: 'absolute',

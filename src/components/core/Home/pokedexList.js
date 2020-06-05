@@ -1,11 +1,6 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
+ * @author Vanderson de Moura Vauruk
  */
-
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -17,63 +12,37 @@ import {
     Text,
 } from 'react-native';
 
-import {
-    Icon,
-    Input,
-    Item
-} from 'native-base'
 import { useSelector, useDispatch } from 'react-redux';
 import {
     Colors,
 } from 'react-native/Libraries/NewAppScreen';
+import Pokemon from './pokemon'
 
-import { pokedexListAction } from '../../../services/actions/core'
+import { pokemonListAction } from '../../../services/actions/core'
 
 import theme, { styles } from '../Theme';
 
+import _ from 'lodash'
 
-// type Props = {};
-// class PokedexList extends Component<Props> {
-//     constructor(props) {
-//         super(props);
-//     }
 const PokedexList: () => React$Node = (props) => {
-    const dispatch = useDispatch(); // The older mapDispatchToProps
-    const pokedexList = useSelector((state) => state.core.pokedexList); //The older mapStateToProps
-    console.log("pokedexList", pokedexList, props.idNome);
+    const dispatch = useDispatch();
+    const pokedexList = useSelector((state) => state.core.pokedexList);
 
     useEffect(() => {
-        dispatch(pokedexListAction()); //The older componentDidMount
+        dispatch(pokemonListAction()); //The older componentDidMount
     }, []);
 
-
-    //render() {
-    //  const { pokedexList } = this.props
     return (
         <View>
             {
                 pokedexList && pokedexList.map((item, index) =>
-                    <Text key={index}>{item.name}</Text>
+                    <Pokemon key={index} url={item.url} />
                 )
             }
         </View>
     );
-    // }
 };
-
-const mapStateToProps = (state) => ({
-    // sadas: console.log("state", state),
-    pokedexList: state.core.pokedexList
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-    pokedexListAction
-}, dispatch);
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(PokedexList);
+export default PokedexList;
 
 const stylesLocal = StyleSheet.create({
     scrollView: {
