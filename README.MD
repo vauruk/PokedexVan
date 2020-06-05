@@ -1,22 +1,41 @@
 ## Projeto criado como teste de competencia para GRGIT - Pokedex
+ - Versão React: </br>
+   - react - 16.11.0 </br>
+   - react-native - 0.62.2 </br>
+ 
+ - Utilizado </br>
+   - React </br>
+     - Classe Component </br>
+     - Hooks </br>
+     - Redux </br>
+     - Axios </br>
+   
+ - Tarefa Listar todos os pokemons </br>
+ - Acessar as seguintes informações de um pokemon: </Br>
+    - HP </Br>
+    - Ataque  </Br>
+    - Defesa  </Br>
+    - Velocidade Habilidades (abilities) </Br>
+    - Pesquisar um pokemon pelo nome Paginação dos resultados  </Br></br></br>
 
-- Listar todos os pokemons
-- Acessar as seguintes informações de um pokemon:
-  -- HP
-  -- Ataque
-  -- Defesa
-  -- Velocidade Habilidades (abilities)
-  -- Pesquisar um pokemon pelo nome Paginação dos resultados
 
-- Para estartar o projeto deve ser baixado no git
-  De preferencia deve ser rodado as linhas de comando a seguir:
+ - <b>Após baixar do git </B> </Br>
+    - yarn install </br>
+    
+  - Rodando a aplicacao:</br>
+    - npx react-native run-ios
 
--- watchman watch-del-all && rm -rf node_modules && yarn install && yarn start --reset-cache && rm -rf /tmp/metro-\*
+ - Para rebuildar a aplicacao caso esteja com problemas: </br>
+   - watchman watch-del-all && rm -rf node_modules && yarn install && yarn start --reset-cache && rm -rf /tmp/metro-\* </br>
 
-- Ou deve ser instalador todos os pacotes
-  Run
-  yarn install
-  npx react-native run-ios
+
+</br>
+</br>
+<b> Funcionamento aplicativo</b>
+  - Aplicativo tem funcionamento simples, com apenas duas telas, usando um biblioteca para transição de uma para a outra chamada Router Flux, a primeira tela tem todas as ações praticamente, a busca é feita apos 3 caracteres serem digitados feito dessa maneira para ter uma performance melhor, não fazendo sentido buscar informações com apenas 1 ou 2 caracteres
+
+</br></br>
+-Observações ao programador
 
 # se necessario criar theme
 
