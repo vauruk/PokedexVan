@@ -11,13 +11,14 @@ export const pokemonListAction = (textToSearch) => {
     //const token = getState().auth.currentUser.access_token
     const PATH = '/pokemon?offset=5&limit=5'
     return (dispatch) => {
+        dispatch({ type: types.POKEDEX_LIST, payload: undefined })
         Api.get(PATH, null, null).then(
             dispatch({ type: types.LOADING, payload: true })
         ).then(res => {
+            dispatch({ type: types.POKEDEX_COUNT, payload: res.data.count })
             dispatch({ type: types.FORWARD_ACTION, payload: res.data.next })
             dispatch({ type: types.BACK_ACTION, payload: res.data.previous })
 
-            dispatch({ type: types.POKEDEX_COUNT, payload: res.data.count })
             dispatch({ type: types.LOADING, payload: false })
             console.log("res", textToSearch)
             let pokedexList = res.data.results
@@ -27,7 +28,6 @@ export const pokemonListAction = (textToSearch) => {
                     return item.name.toLowerCase().indexOf(textToSearch.toLowerCase()) == 0;
                 })
                 console.log("list new ", pokedexList)
-                dispatch({ type: types.POKEDEX_LIST, payload: pokedexList })
             }
             dispatch({ type: types.POKEDEX_LIST, payload: pokedexList })
 
@@ -46,6 +46,7 @@ export const previousAction = () => {
         let lastIndex = url ? url.lastIndexOf('v2') : 0;
         const path = url.substring(lastIndex + 3, url.lenght)
         console.log("previous", path)
+        dispatch({ type: types.POKEDEX_LIST, payload: undefined })
         Api.get(path, null, null).then(
             dispatch({ type: types.LOADING, payload: true })
         ).then(res => {
@@ -67,6 +68,7 @@ export const nextAction = () => {
         let lastIndex = url ? url.lastIndexOf('v2') : 0;
         const path = url.substring(lastIndex + 3, url.lenght)
         console.log("next", path)
+        dispatch({ type: types.POKEDEX_LIST, payload: undefined })
         Api.get(path, null, null).then(
             dispatch({ type: types.LOADING, payload: true })
         ).then(res => {
