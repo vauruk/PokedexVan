@@ -9,12 +9,8 @@ import {
     View,
     Text,
 } from 'react-native';
-import {
-    Icon
-} from 'native-base'
 import { selectColorByType } from '../../../services/util/constants'
 import theme, { styles } from '../Theme';
-import Bug from '../../../assets/bug.png'
 
 const PokemonType: () => React$Node = (props) => {
 
@@ -42,8 +38,6 @@ const stylesLocal = StyleSheet.create({
     tag: {
         width: 70,
         borderRadius: 2,
-        // borderWidth: 0.7,
-        // borderColor: theme.WHITE_COLOR,
         marginLeft: 10,
         shadowOffset: { width: 2, height: 2 },
         shadowColor: '#ffffff',

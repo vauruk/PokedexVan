@@ -4,12 +4,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import {
-    // SafeAreaView,
     StyleSheet,
-    ScrollView,
     View,
     Text,
     Image,
@@ -17,10 +13,8 @@ import {
 import { selectColorByType } from '../../../services/util/constants'
 import PokemonType from './pokemonType'
 import Stat from './stat'
-import { Actions } from 'react-native-router-flux';
 import theme, { styles } from '../Theme'
 import _ from 'lodash'
-//import Api from '../../../services/util/api'
 
 
 const PokemonStats: () => React$Node = (props) => {

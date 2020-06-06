@@ -1,9 +1,7 @@
 /**
  * @author Vanderson de Moura Vauruk
  */
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, { useEffect } from 'react';
 import {
     StyleSheet,
     View,
@@ -19,18 +17,12 @@ import Pokemon from './pokemon'
 import { pokemonListAction } from '../../../services/actions/core'
 
 import theme, { styles } from '../Theme';
-//import { createSelector } from 'reselect'
 
 import _ from 'lodash'
 
-// const selectPokomonList = createSelector(
-//     state => state.core.pokedexList,
-//     // todos => todos.filter(todo => todo.isDone).length
-// )
 
 const PokedexList: () => React$Node = (props) => {
     const dispatch = useDispatch();
-    // const [pokedexList, setPokedexList] = useState(useSelector((state) => state.core.pokedexList));
 
     const pokedexList = useSelector((state) => state.core.pokedexList);
 
@@ -38,7 +30,7 @@ const PokedexList: () => React$Node = (props) => {
         dispatch(pokemonListAction());
     }, []);
 
-    console.log("pokedexList x", pokedexList)
+    //console.log("pokedexList x", pokedexList)
 
     return (
         <View>
@@ -51,17 +43,6 @@ const PokedexList: () => React$Node = (props) => {
     );
 };
 
-const mapStateToProps = (state) => ({
-    // sadas: console.log("state", state),
-    pokedexList: state.core.pokedexList
-});
-
-// const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
-
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps,
-// )(PokedexList);
 export default PokedexList;
 
 const stylesLocal = StyleSheet.create({

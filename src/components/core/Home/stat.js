@@ -30,9 +30,6 @@ const Stat: () => React$Node = (props) => {
     return (
         <View style={[{
             flexDirection: 'row',
-            // height: '35%',
-            // marginTop: 60
-            //  paddingBottom: 10
         }]}>
             <View style={[{ flex: 0.15 }]}>
                 <Text style={[{ fontWeight: "bold", fontSize: theme.TEXT_8, textTransform: "capitalize" }]}>

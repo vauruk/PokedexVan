@@ -3,8 +3,8 @@
  * @date 05/06/2020
  */
 
-import { Dimensions, Platform, StyleSheet } from 'react-native';
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
+import { Dimensions, StyleSheet } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const PRIMARY_COLOR = '#5c4696'
 const SECONDARY_COLOR = '#C8D419'
@@ -74,9 +74,6 @@ export default {
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        //   color: '#ffffff',
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
     },
@@ -87,7 +84,6 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
     },
     wrapperPopup: {
-        // backgroundColor: LIGHT_BACKGROUND_COLOR,
         width: '90%',
         borderRadius: 10,
         borderColor: PRIMARY_COLOR,
@@ -104,15 +100,12 @@ export const styles = StyleSheet.create({
         height: Dimensions.get('window').height
     },
     centerGrid: {
-        //height: 100,
         justifyContent: 'center',
         alignItems: 'center',
-        //padding: -10
     },
     leftGrid: {
         flex: 1,
         justifyContent: 'center',
-        // marginTop: 10
     },
     modalHeaderLight: {
         padding: 18,
@@ -124,7 +117,6 @@ export const styles = StyleSheet.create({
         color: PRIMARY_COLOR
     },
     buttonDefault: {
-        // marginTop: 50,
         borderRadius: 50,
         height: 50,
         backgroundColor: PRIMARY_COLOR,
@@ -147,8 +139,6 @@ export const styles = StyleSheet.create({
         color: PRIMARY_COLOR
     },
     buttonCancel: {
-        // marginTop: 50,
-        //backgroundColor: SECONDARY_COLOR_FONT,
         borderRadius: 50,
         height: 50,
         marginLeft: '15%',

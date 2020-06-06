@@ -3,15 +3,11 @@
  */
 
 import React, { useState } from 'react';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import {
-    //   SafeAreaView,
     StyleSheet,
     ScrollView,
     View,
     Text,
-
 } from 'react-native';
 
 import { Icon, Input, Spinner } from 'native-base'
@@ -30,8 +26,6 @@ import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 
 import { pokemonListAction } from '../../../services/actions/core'
 
-//type Props = {};
-//class Home extends Component<Props> {
 const Home: () => React$Node = (props) => {
     const [textToSearch, setTextToSearch] = useState(undefined)
     // const loading = useSelector(state => state.core.loading)
@@ -53,8 +47,6 @@ const Home: () => React$Node = (props) => {
     return (
         <View style={{ height: '100%' }}>
             <ScrollView
-                //contentInsetAdjustmentBehavior="automatic"
-                //contentInsetAdjustmentBehavior="scrollableAxes"
                 style={stylesLocal.scrollView}>
                 <View>
                     <View style={stylesLocal.sectionContainer}>
@@ -66,12 +58,10 @@ const Home: () => React$Node = (props) => {
                     style={[
                         stylesLocal.sectionContainer,
                         {
-                            //  height: 40,
                             marginLeft: 20,
                             marginRight: 20,
                             backgroundColor: '#F2F2F2',
                             paddingLeft: 20,
-                            // padding: 10,
                             borderRadius: 10,
                         },
                     ]}>
@@ -117,20 +107,9 @@ const Home: () => React$Node = (props) => {
     );
 };
 
-const mapStateToProps = (state) => ({
-    // sadas: console.log("state", state),
-    loading: state.core.loading,
-    count: state.core.count
-});
 
-const mapDispatchToProps = dispatch => bindActionCreators({ pokemonListAction }, dispatch);
+export default Home;
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Home);
-
-//export default Home;
 
 const stylesLocal = StyleSheet.create({
     scrollView: {

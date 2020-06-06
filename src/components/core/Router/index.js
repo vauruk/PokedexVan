@@ -5,15 +5,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { View, Image, Animated, Easing, StyleSheet, Platform, Text, TextInput } from 'react-native';
-import { Scene, Router, Actions, Drawer, Tabs, Stack, Lightbox } from 'react-native-router-flux';
+import { StyleSheet, Text } from 'react-native';
+import { Scene, Router, Actions, Stack } from 'react-native-router-flux';
 import {
     Icon
 } from 'native-base'
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
+import { RFValue } from 'react-native-responsive-fontsize';
 import HeaderHome from '../Home/headerHome'
 import PokemonStats from '../Home/pokemonStats'
-// import IconMaterialCommunity from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Home from '../Home'
 import theme, { styles } from '../Theme'

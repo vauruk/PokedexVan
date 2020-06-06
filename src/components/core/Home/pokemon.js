@@ -5,7 +5,6 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-    // SafeAreaView,
     StyleSheet,
     View,
     Text,
@@ -17,10 +16,9 @@ import {
     Spinner
 } from 'native-base'
 
-import Api from '../../../services/util/api' //'../../util/api'
+import Api from '../../../services/util/api'
 import { selectColorByType } from '../../../services/util/constants'
 import PokemonType from './pokemonType'
-//import * as types from '../../../services/actions/core/types';
 import theme, { styles } from '../Theme';
 
 const Pokemon: () => React$Node = (props) => {
@@ -44,7 +42,6 @@ const Pokemon: () => React$Node = (props) => {
                         setColorCard(type.color)
                     }
                 })
-                // dispatch({ type: types.POKEDEX_LIST, payload: res.data.results })
                 setPokemon(res.data)
                 setLoading(false)
             }).catch(error => {

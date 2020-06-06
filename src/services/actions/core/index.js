@@ -8,7 +8,6 @@ import Api from '../../util/api'
 
 
 export const pokemonListAction = (textToSearch) => {
-    //const token = getState().auth.currentUser.access_token
     const PATH = '/pokemon?offset=5&limit=5'
     return (dispatch) => {
         dispatch({ type: types.POKEDEX_LIST, payload: undefined })
@@ -34,7 +33,6 @@ export const pokemonListAction = (textToSearch) => {
         }).catch(error => {
             dispatch({ type: types.LOADING, payload: false })
             console.log("error:", error)
-            // errorClg(error, dispatch)
         });
     };
 }
@@ -58,7 +56,6 @@ export const previousAction = () => {
         }).catch(error => {
             dispatch({ type: types.LOADING, payload: false })
             console.log("error:", error)
-            // errorClg(error, dispatch)
         });
     }
 }
@@ -84,4 +81,3 @@ export const nextAction = () => {
         });
     }
 }
-

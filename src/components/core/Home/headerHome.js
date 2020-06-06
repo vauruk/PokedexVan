@@ -1,26 +1,17 @@
 /**
  * @author Vanderson de Moura Vauruk
  */
-import React, { Component } from 'react';
+import React from 'react';
 import {
     StyleSheet,
     View,
-    Text,
     TouchableOpacity,
-    Animated,
-    Dimensions,
-    Alert,
 
 } from 'react-native';
 import {
-    Button,
     Icon
 } from 'native-base'
-import { Actions } from 'react-native-router-flux';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import theme, { styles } from '../Theme'
-//import IconMaterialCommunity from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const HeaderHome: () => React$Node = () => {
     return (
@@ -29,24 +20,18 @@ const HeaderHome: () => React$Node = () => {
                 hitSlop={{ top: 20, bottom: 20, left: 10, right: 10 }}
             >
                 <Icon type="MaterialCommunityIcons" name="view-comfy" />
-                {/* <IconMaterialCommunity  name="alarm" style={{ fontSize: 30, color: theme.WHITE_COLOR }} /> */}
-                {/* <View style={stylesLocal.badgeContainer}>
-                    <Text style={stylesLocal.badgeText}>{20}</Text>
-                </View> */}
             </TouchableOpacity>
             <TouchableOpacity
                 hitSlop={{ top: 20, bottom: 20, left: 10, right: 10 }}
                 style={{ marginLeft: 15 }}
             >
                 <Icon type="MaterialCommunityIcons" name="sort" style={{ fontSize: 25 }} />
-                {/* <IconMaterialCommunity  name="alarm" style={{ fontSize: 30, color: theme.WHITE_COLOR }} /> */}
             </TouchableOpacity>
             <TouchableOpacity
                 hitSlop={{ top: 20, bottom: 20, left: 10, right: 10 }}
                 style={{ marginLeft: 15, marginRight: 20 }}
             >
                 <Icon type="MaterialCommunityIcons" name="tune" style={{ fontSize: 25 }} />
-                {/* <IconMaterialCommunity  name="alarm" style={{ fontSize: 30, color: theme.WHITE_COLOR }} /> */}
             </TouchableOpacity>
 
         </View>
@@ -78,12 +63,4 @@ const stylesLocal = StyleSheet.create({
     },
 });
 
-const mapStateToProps = (state) => {
-    return {
-        // userId: state.auth.currentUser.userId,
-        // partners: state.healthpoints.partners,
-    };
-};
-const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderHome);
+export default HeaderHome;
