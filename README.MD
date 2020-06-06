@@ -5,7 +5,6 @@
  
  - Utilizado </br>
    - React </br>
-     - Classe Component </br>
      - Hooks </br>
      - Redux </br>
      - Axios </br>
