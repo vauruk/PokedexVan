@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@aws-amplify/core": "^3.3.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "lodash": "^4.17.15",
     "native-base": "^2.13.12",
     "react": "16.11.0",
